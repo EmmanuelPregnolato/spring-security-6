@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: spring-security-6
+
+logging:
+  level:
+    com.dailycodebuffer.security: DEBUG
+    org:
+      springframework:
+        security: TRACE
+        web:
+          csrf: TRACE
+          header: TRACE
+        access: DEBUG
