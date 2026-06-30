@@ -21,6 +21,9 @@ Projet d'étude basé sur le cours complet de *Daily Code Buffer* pour maîtrise
 ```bash
 # Pour compiler le projet
 mvn clean compile
+```
 
-# Pour lancer l'application
-mvn spring-boot:run
+## Basic Auth l'application
+* **username:** user
+* **password:** In the terminal on start up
+* **HEADER X-CSRF-TOKEN:** localhost:8080/csrf

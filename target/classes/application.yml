@@ -1,6 +1,10 @@
 spring:
   application:
     name: spring-security-6
+  security:
+    user:
+      name: manu
+      password: password
 
 logging:
   level:
