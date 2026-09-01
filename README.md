@@ -27,3 +27,28 @@ mvn clean compile
 * **username:** user
 * **password:** In the terminal on start up
 * **HEADER X-CSRF-TOKEN:** localhost:8080/csrf
+
+## JWT flow
+[ App Mobile / Frontend ]
+
+  1. /login (username + password)
+
+[ Authorization Server ] ── (Possède la Clé Privée)
+
+  2. Génère & signe le JWT
+     (avec les rôles/claims dans le Payload)
+
+[ App Mobile / Frontend ]
+
+  3. Stocke le JWT dans le Keychain
+     et l'envoie dans Authorization: Bearer <JWT>
+
+[ Resource Server (API Spring Boot) ]
+
+  4. Télécharge / Cache la Clé Publique depuis
+     https://auth-server/.well-known/jwks.json
+
+  5. Valide la signature + la date d'expiration
+     + lit les rôles directement depuis le JWT
+
+[ Accès aux données accordé ! ]
