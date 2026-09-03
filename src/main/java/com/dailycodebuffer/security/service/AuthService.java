@@ -17,7 +17,7 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    // private final JwtService jwtService; // Bientôt injecté ici !
+    private final JwtService jwtService;
 
     public User register(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -30,8 +30,7 @@ public class AuthService {
         );
 
         if (authentication.isAuthenticated()) {
-            return user.toString();
-            // return jwtService.generateToken(user.getUsername());
+            return jwtService.generateToken(user);
         } else {
             throw new UsernameNotFoundException("Utilisateur non valide");
         }
