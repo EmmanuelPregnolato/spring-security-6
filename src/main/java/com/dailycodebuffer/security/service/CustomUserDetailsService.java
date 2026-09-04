@@ -3,6 +3,7 @@ package com.dailycodebuffer.security.service;
 import com.dailycodebuffer.security.entity.User;
 import com.dailycodebuffer.security.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -12,6 +13,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 
+@Primary
 @Service
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
